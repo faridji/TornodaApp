@@ -5,4 +5,3 @@ if __name__ == "__main__":
 
     # Start server to listen on some port
     app.start_server()
-    app.run()

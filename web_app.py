@@ -31,9 +31,7 @@ class WebApp(tornado.web.Application):
 
     def start_server(self):
         self.listen(self.port)
-        print("Server is listening on port", self.port)
-
-    def run(self):
         tornado.ioloop.IOLoop.current().start()
+        print("Server is listening on port", self.port)
 
 
