@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+    <h1>List of All Customers</h1>
     <ul>
        {% for customer in customers %}
-         <li>{{ customer }}</li>
+         <li>{{ customer['name'] }} ({{ customer['address'] }})</li>
        {% end %}
      </ul>
-</body>
-</html>
+{% end %}

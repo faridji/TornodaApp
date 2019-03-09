@@ -1,7 +1,7 @@
 import tornado.ioloop
 import tornado.web
+from handler import MainHandler, CustomerHandler, ProductHandler
 
-from handler import MainHandler, WebHandler, CustomerHandler
 
 class WebApp(tornado.web.Application):
     port = 4000
@@ -27,11 +27,11 @@ class WebApp(tornado.web.Application):
         super().__init__(handlers=[
             (r"/api/customers/([0-9]+)", CustomerHandler),
             (r"/api/customers", MainHandler),
-            (r"/", WebHandler)], **settings)
+            (r"/api/products", ProductHandler)], **settings)
 
     def start_server(self):
         self.listen(self.port)
-        tornado.ioloop.IOLoop.current().start()
         print("Server is listening on port", self.port)
+        tornado.ioloop.IOLoop.current().start()
 
 
