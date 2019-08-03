@@ -1,5 +1,7 @@
-# Created by .ignore support plugin (hsz.mobi)
-.gitignore
-.idea/encodings.xml
-.idea/workspace.xml
+/.idea
+.svn
+node_modules
+dist
+.vscode
+__pycache__
 venv

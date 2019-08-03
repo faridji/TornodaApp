@@ -1,9 +1,9 @@
 import tornado.ioloop
 import tornado.web
-from tornado_sqlalchemy import make_session_factory
+# from tornado_sqlalchemy import make_session_factory
 
 import os;
-from handler import MainHandler, CustomerHandler, ProductHandler
+from handler import MainHandler
 
 
 class WebApp(tornado.web.Application):
@@ -30,9 +30,7 @@ class WebApp(tornado.web.Application):
         }
 
         super().__init__(handlers=[
-            (r"/api/customers/([0-9]+)", CustomerHandler),
-            (r"/api/customers", MainHandler),
-            (r"/api/products", ProductHandler)], **settings)
+            (r"/api/compositions", MainHandler)], **settings)
 
     def start_server(self):
         self.listen(self.port)
