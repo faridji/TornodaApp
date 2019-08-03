@@ -3,7 +3,7 @@ import tornado.web
 # from tornado_sqlalchemy import make_session_factory
 
 import os;
-from handler import MainHandler
+from handler import MainHandler, TemplateHandler
 
 
 class WebApp(tornado.web.Application):
@@ -30,7 +30,8 @@ class WebApp(tornado.web.Application):
         }
 
         super().__init__(handlers=[
-            (r"/api/compositions", MainHandler)], **settings)
+            (r"/api/compositions", MainHandler),
+            (r"/api/templates", TemplateHandler)], **settings)
 
     def start_server(self):
         self.listen(self.port)
