@@ -1,5 +1,6 @@
 import tornado.web
 import json
+import db
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -10,7 +11,8 @@ class MainHandler(tornado.web.RequestHandler):
         print("prepare method")
 
     def get(self):
-        self.write(json.dumps(self.compositions))
+        data = db.makeJSON()
+        return self.write(json.dumps(data))
 
     def post(self):
         data = json.loads(self.request.body)
